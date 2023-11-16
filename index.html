@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ab4164fb02.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-----HEADER SECTION---->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <div class="logo"> <h1>NAHID</h1> </div>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#project">Projact</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Frontend Web Developer</p>
+                <h1>Hi Everyone, I'm Nahid Nasim </br> from India</h1>
+            </div>
+        </div>
+    </div>
+
+<!----ABOUT SECTION----->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="Images/Profile.jpeg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>My name is Nahid Nasim.I'm from Howrah,West Bengal.Currently I'm pursuing B.tach in Computer science & engineering from Budge budge institute of technology.I'm very much passionate about to make my career as Frontend Web Developer.  </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul> 
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Java Script</li>
+                        <li>C programing language</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul> 
+                        <li><span>Pursuing</span><br>B.tech in Computer science & engineering from BBIT Kolkata</li>
+                        <li><span>2022</span><br>Diploma in Computer science & technology from BBIT Kolkata</li>
+                        <li><span>2019</span><br>Class X from Shibpur hindu girl's high school</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------Project------>
+<div id="project">
+    <div class="container">
+        <h1 class="sub-title">Project</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="Images/Online tour.jpg">
+                <div class="layer">
+                    <h3> Online Tour Management System</h3>
+                    <p>A Online Tour Management System is a stand-alone application that<br> keeps a centralized repository of all related information. The goal is to<br> create a system that allows users to conduct all travel and sightseeing <br>activities.</p>
+                </div>
+            </div>
+        </div>
+        <a href="Images/Online tour management system.pdf" download class="btn">Download Project</a>
+    </div>
+</div>
+
+<!-----Contact------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i>nahidnasim04@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>8420681030</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ms_nahid04/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100016073490828"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/nahid-nasim-b845a1239?"><i class="fa-brands fa-linkedin"></i></i></a>
+                    <a href="https://github.com/NahidNasim04"><i class="fa-brands fa-github"></i></i></a>
+                </div>
+                <a href="Images/Resume.pdf" download class="btn">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="Submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright <i class="fa-regular fa-copyright"></i> Nahid</p>
+    </div>
+</div>
+
+<!----script for skill & education---->
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<!----script for manu---->
+<script>
+var sidemenu = document.getElementById("sidemenu");
+function openmenu(){
+    sidemenu.style.right = "0";
+}
+function closemenu(){
+    sidemenu.style.right = "-200px";
+}
+</script>
+
+<!----script for contact form---->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwkzBq4mChRlz5ey_5Y55br0wfz3llWfD1VqWC9dxhj5zoG0e7ot2A76M1AqZWGJQAS/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message send successfully"
+        setTimeout(function(){
+            msg.innerHTML = ""
+        },5000)
+        form.reset()
+    })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
